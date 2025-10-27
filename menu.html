@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mais Produtos - ATM Serralheria</title>
+  <link rel="stylesheet" href="pj.css"> <!-- usa o mesmo CSS -->
+</head>
+<body>
+ <header class="header">
+    <nav class="navbar">
+        <a href="#" class="logo-link">
+            <span class="logo-icon"><img src="" alt=""></span> 
+            <span class="logo-text">TMA serralheria</span>
+        </a>
+
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+
+        <ul class="nav-menu">
+            <li><a href="#" class="nav-link">Inicio</a></li>
+            <li><a href="#" class="nav-link">Sobre </a></li>
+            <li><a href="#" class="nav-link">serviços</a></li>
+           
+            <li><a href="#" class="nav-link nav-btn-container"><button class="nav-button">Contato</button></a></li>
+        </ul>
+    </nav>
+</header>
+
+
+  <!-- SEÇÃO MENU COMPLETO -->
+    <section class="section-destaques fade-in">
+  <div class="container">
+    <h2>Destaques</h2>
+    <div class="slider">
+      
+      <!-- ITEM 1 -->
+      <div class="slide fade-in">
+        <div class="slide-image">
+          
+          <img src="img/poltrona.jpg" alt="" loading="lazy">
+          <div class="slide-caption">Poltrona </div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('poltrona')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="slide fade-in">
+        <div class="slide-image">
+        
+          <img src="img/sofa.jpg" alt="" loading="lazy">
+            <div class="slide-caption">Sofá</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('sofa')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="slide fade-in">
+        <div class="slide-image">
+        
+          <img src="img/armario.jpg" alt="armario" loading="lazy">
+            <div class="slide-caption">Armario</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('armario')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 4 -->
+      <div class="slide fade-in">
+        <div class="slide-image">
+          
+          <img src="img/prateleiraluz.jpg" alt="" loading="lazy">
+          <div class="slide-caption">prateleira</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('prate')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 5 -->
+      <div class="slide fade-in">
+        <div class="slide-image">
+      
+          <img src="img/Estante para Livros da Amanda.jpg" alt="" loading="lazy">
+              <div class="slide-caption">estantes</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('esta')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 6 -->
+      <div class="slide fade-in">
+        <div class="slide-image">
+       
+          <img src="img/armarinho.jpg" alt="Banco de jardim industrial com estrutura de ferro" loading="lazy">   <div class="slide-caption">Balcão</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('armarinho')">Mais Detalhes</button>
+        </div>
+      </div>
+  <!-- ITEM 1 -->
+      <div class="slide fade-in" >
+        <div class="slide-image">
+          
+          <img src="img/mesa1.png" alt="Banqueta Alçada com mesa alta e banquetas" loading="lazy">
+          <div class="slide-caption">Banqueta Alçada</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('mesa1')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 2 -->
+      <div class="slide fade-in">
+        <div class="slide-image">
+        
+          <img src="img/mesa3.jpg" alt="Mesa industrial de madeira e ferro" loading="lazy">
+            <div class="slide-caption">Mesa Industrial</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('mesa2')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 3 -->
+      <div class="slide fade-in">
+        <div class="slide-image">
+        
+          <img src="img/escada3.jpg" alt="Escada com guarda-corpo de ferro trabalhado" loading="lazy">
+            <div class="slide-caption">Escada com guarda-corpo</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('mesa3')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 4 -->
+      <div class="slide ">
+        <div class="slide-image">
+          
+          <img src="img/Conjunto Mesa 4 Cadeiras Pequena Estofado Marrom Industrial W.jpg" alt="Conjunto de mesa com 4 cadeiras estofadas" loading="lazy">
+          <div class="slide-caption">Conjunto Mesa + 4 Cadeiras</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('mesa4')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 5 -->
+      <div class="slide ">
+        <div class="slide-image">
+      
+          <img src="img/Nicho 3 Cubos em Metalon.jpg" alt="Nicho industrial com 3 cubos em metalon" loading="lazy">
+              <div class="slide-caption">Nicho Industrial 3 Cubos</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('mesa5')">Mais Detalhes</button>
+        </div>
+      </div>
+
+      <!-- ITEM 6 -->
+      <div class="slide ">
+        <div class="slide-image">
+       
+          <img src="img/banco de jardim industrial.jpg" alt="Banco de jardim industrial com estrutura de ferro" loading="lazy">   <div class="slide-caption">Banco de Jardim Industrial</div>
+        </div>
+        <div class="slide-caption">
+          <button class="detalhes-btn" onclick="abrirDetalhes('mesa6')">Mais Detalhes</button>
+        </div>
+      </div>
+    </div>
+    <!-- BOTÃO VEJA MAIS -->
+<div class="ver-mais-container">
+  <a href="pj.html" class="ver-mais-btn">voltar</a>
+</div>
+  </div>
+</section>
+</body>
+<script> function abrirDetalhes(item) {
+    localStorage.setItem('itemSelecionado', item);
+    window.location.href = 'pagina.html';
+  }
+</script>
+</html>

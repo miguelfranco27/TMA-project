@@ -1,0 +1,1551 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Detalhes do Produto — THIRON</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+    
+    <style>
+        /* ==========================================================
+        🎨 ESTILOS GERAIS - FERROARTE
+        Autor: Miguel Franco
+        Descrição: CSS organizado e comentado para personalização
+        ========================================================== */
+
+/* ----------------------------------------------------------
+    🌈 VARIÁVEIS DE CORES E TIPOGRAFIA
+    Altere aqui as cores principais e fontes do site
+    ---------------------------------------------------------- */
+:root {
+    --primary-color: #e8e8e8;       /* Azul principal - links e destaques */
+    --secondary-color: #f5f5f5;     /* Cinza-claro - textos secundários */
+    --text-color: #ffffff;          /* Cor principal do texto */
+    --accent-color: #ffffff;        /* Azul escuro para hover e botões */
+    --bg-page: #ffffff;             /* Fundo principal  */
+    --bg-section: #ffffff;          /* Fundo das seções */
+    /* --border-color: #fafafa;         Bordas e divisores sutis */
+    --font-main: 'Nunito Sans', sans-serif;
+}
+
+/* ----------------------------------------------------------
+    ⚙️ RESET E BASE
+    ---------------------------------------------------------- */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: var(--font-main);
+    background-color: #ffffff;       /* Fundo geral da página */
+    color: var(--text-color);
+    line-height: 1.6;
+    min-height: 100vh;
+}
+
+/* NOVO: Bloqueia o scroll do fundo da tela quando o menu lateral está aberto */
+body.menu-open {
+    overflow: hidden; 
+}
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+/* ----------------------------------------------------------
+    🔝 CABEÇALHO / NAVBAR
+    ---------------------------------------------------------- */
+
+/* NAVBAR */
+/* ========================================================================= */
+/* ESTILOS GERAIS/RESET SIMPLES (Opcional, mas recomendado) */
+/* ========================================================================= */
+/* Remover bullets de listas e sublinhado de links */
+.nav-menu, .footer-nav ul {
+    list-style: none;
+}
+
+.nav-link, .footer-link, .footer-social-link {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ========================================================================= */
+/* ESTILOS DA NAV BAR - Design 'La Maison' */
+/* ========================================================================= */
+
+.header {
+    /* Cor de fundo da navbar - MUDAR AQUI SE NECESSÁRIO (Ex: lightblue no design) */
+    background-color: #f0f8ff; 
+    padding: 15px 30px;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px; /* Limite de largura para desktop */
+    margin: 0 auto;
+    /* Importante para que o menu lateral tenha a posição correta de Z-index */
+    position: relative; 
+    z-index: 1000;
+}
+
+/* Logo */
+.logo-link {
+    display: flex;
+    align-items: center;
+    font-size: 20px;
+    font-weight: bold;
+    color: #333; /* Cor do texto do logo */
+}
+
+.logo-icon {
+    font-size: 24px;
+    margin-right: 5px;
+    /* Cor do ícone - MUDAR AQUI */
+    color: #007bff; 
+}
+
+/* Menu de Links */
+.nav-menu {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+}
+
+.nav-link {
+    color: #333; /* Cor dos links */
+    font-weight: 500;
+    padding: 10px 0;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    /* Cor ao passar o mouse */
+    color: #C53D4B; 
+}
+
+/* Botão de Ação (Find A House) */
+.nav-button {
+    background-color: transparent;
+    /* Cor da borda - MUDAR AQUI */
+    border: none; 
+    color: white; /* Cor do texto do botão */
+    padding: 10px 20px;
+    background-color: #C53D4B;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 16px;
+    font-weight: 500;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.nav-button:hover {
+    /* Cor de fundo ao passar o mouse */
+    background-color: #333; 
+    /* Cor do texto ao passar o mouse */
+    color: white; 
+}
+
+/* Esconder o botão de toggle em telas grandes (Desktop) */
+.nav-toggle {
+    display: none;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 10px;
+}
+/* Ajuste da LOGO */
+.logo-link {
+    display: flex;
+    align-items: center;
+}
+
+.logo-img {
+    height: 40px; /* Ajuste o tamanho da logo aqui */
+    width: auto;
+    object-fit: contain;
+    margin-right: 10px;
+}
+
+/* Remover estilização antiga do texto */
+.logo-text {
+    display: none;
+}
+
+
+/* ========================================================================= */
+/* ESTILOS DO FOOTER - Design 'Influenca' */
+/* ... (Seu código do footer mantido aqui) ... */
+/* ========================================================================= */
+.footer {
+    /* Cor de fundo do footer - MUDAR AQUI (cor verde azulada no design) */
+    background-color: white; 
+    /* Cor do texto geral - MUDAR AQUI */
+    color: black; 
+    padding: 60px 30px 20px;
+    font-size: 16px;
+}
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto 40px;
+    gap: 30px;
+}
+
+.footer-column {
+    flex: 1;
+}
+
+.footer-info {
+    flex: 2; /* Para a coluna de informações ocupar mais espaço */
+    max-width: 350px;
+}
+
+.footer-logo {
+    margin-bottom: 20px;
+    font-size: 24px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap; /* Permite que o subtítulo vá para a linha de baixo */
+}
+
+.logo-icon-footer {
+    /* Cor do ícone do logo - MUDAR AQUI */
+    color: black; 
+    font-size: 30px;
+    margin-right: 5px;
+    line-height: 1;
+}
+
+.logo-text-footer {
+    line-height: 1;
+}
+
+.logo-subtitle {
+    display: block;
+    font-size: 12px;
+    font-weight: normal;
+    /* Cor do subtítulo - MUDAR AQUI */
+    color: black; 
+    margin-top: 2px;
+    width: 100%;
+}
+
+.footer-description {
+    line-height: 1.6;
+    font-size: 14px;
+    /* Cor do texto de descrição - MUDAR AQUI */
+    color: black; 
+}
+
+.footer-nav h4 {
+    font-size: 18px;
+    margin-bottom: 20px;
+    font-weight: bold;
+    /* Cor do título das colunas - MUDAR AQUI */
+    color: black; 
+}
+
+.footer-nav ul {
+    padding: 0;
+}
+
+.footer-nav li {
+    margin-bottom: 10px;
+}
+
+.footer-link {
+    /* Cor dos links do footer - MUDAR AQUI */
+    color: black; 
+    font-size: 14px;
+    transition: color 0.3s;
+}
+
+.footer-link:hover {
+    /* Cor do link ao passar o mouse */
+    color:#C53D4B; 
+}
+
+/* Linha de Contato e Social */
+.footer-contact-social {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px 0;
+    /* Linha divisória - MUDAR AQUI (se quiser cor diferente) */
+    border-bottom: 1px solid #C53D4B; 
+}
+
+.footer-contact-item {
+    display: flex;
+    align-items: center;
+    font-size: 14px;
+}
+
+.contact-icon {
+    font-size: 20px;
+    margin-right: 10px;
+    /* Ajuste para ícones (se usar Font Awesome, será diferente) */
+    line-height: 1; 
+}
+
+.footer-social {
+    display: flex;
+    gap: 15px;
+}
+
+.footer-social-link {
+    font-size: 20px;
+    /* Cor dos ícones sociais - MUDAR AQUI */
+    color: black; 
+    transition: color 0.3s;
+}
+
+.footer-social-link:hover {
+    /* Cor dos ícones ao passar o mouse */
+    color: #C53D4B; 
+}
+
+/* Linha de Copyright */
+.footer-bottom {
+    text-align: center;
+    max-width: 1200px;
+    margin: 20px auto 0;
+    font-size: 12px;
+    /* Cor do texto de copyright - MUDAR AQUI */
+    color: black; 
+}
+
+/* ========================================================================= */
+/* RESPONSIVIDADE DO FOOTER (MOBILE) */
+/* ========================================================================= */
+
+@media (max-width: 992px) {
+    .footer-content {
+        flex-wrap: wrap; /* Colunas quebram para a linha de baixo */
+        justify-content: flex-start;
+    }
+
+    .footer-column {
+        min-width: 150px; /* Garante que as colunas de links tenham espaço */
+        margin-bottom: 30px;
+    }
+
+    .footer-info {
+        flex: 1 1 100%; /* Coluna de info ocupa a largura total no mobile */
+        max-width: none;
+        margin-bottom: 40px;
+    }
+
+    .footer-contact-social {
+        flex-direction: column; /* Contato e social empilham */
+        align-items: flex-start;
+        gap: 15px;
+        padding-bottom: 30px;
+    }
+
+    .footer-contact-item {
+        margin-bottom: 5px;
+    }
+
+    .footer-social {
+        margin-top: 15px; /* Espaçamento extra para os ícones sociais */
+    }
+}
+
+@media (max-width: 576px) {
+    /* Ajuste fino para telas menores */
+    .footer-column {
+        flex: 1 1 45%; /* Duas colunas por linha */
+    }
+
+    .footer-info {
+        flex: 1 1 100%;
+    }
+}
+
+/* ========================================================================= */
+/* RESPONSIVIDADE (MOBILE) - NOVO ESTILO SLIDE-IN (MENU LATERAL) */
+/* ========================================================================= */
+@media (max-width: 768px) {
+    .header {
+        padding: 10px 20px;
+    }
+
+    /* Esconder o botão de Ação (Find A House) no mobile */
+    .nav-btn-container {
+        display: none;
+    }
+    
+    /* Mostrar o botão de toggle e garantir que ele fique acima do menu */
+    .nav-toggle {
+        display: block;
+        z-index: 1001; /* Z-index alto para ficar acima de tudo */
+        position: relative; 
+    }
+    
+    /* ----------------------------------------------------------- */
+    /* 1. ESTILOS DO MENU LATERAL (SLIDE-IN) */
+    /* ----------------------------------------------------------- */
+    .nav-menu {
+        /* Posição Fixa para cobrir toda a área de visualização */
+        position: fixed;
+        top: 0;
+        right: 0;
+        height: 100vh; /* Altura total da tela */
+        width: 75%; /* Largura do menu (ex: 75% da tela) */
+        max-width: 320px; /* Limite a largura máxima em tablets */
+        z-index: 1000; /* Abaixo do nav-toggle */
+        
+        /* COR DE FUNDO DO MENU LATERAL - MUDAR AQUI */
+        background-color: white; 
+        
+        /* Layout dos itens */
+        flex-direction: column;
+        justify-content: flex-start; 
+        padding: 80px 30px 20px; /* Padding no topo para evitar o cabeçalho/notch */
+        gap: 30px; 
+        
+        /* O CÓDIGO CHAVE PARA O SLIDE-IN: MOVE O MENU PARA FORA DA TELA (100% à direita) */
+        transform: translateX(100%);
+        
+        /* ANIMAÇÃO SUAVE: Adiciona a transição de 0.4 segundos */
+        transition: transform 0.4s ease-in-out;
+        
+        /* Opcional: Adiciona uma sombra para dar profundidade */
+        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.15);
+    }
+
+    /* ESTADO ATIVO: TRÁS O MENU PARA DENTRO DA TELA */
+    .nav-menu.active {
+        transform: translateX(0); /* Move para a posição original */
+    }
+
+    .nav-menu li {
+        width: 100%;
+        text-align: left;
+    }
+    
+    .nav-link {
+        display: block;
+        padding: 15px 0;
+        font-size: 20px; /* Aumenta a fonte para mobile */
+        /* COR DO TEXTO DOS LINKS - MUDAR AQUI */
+        color: #333; 
+        border-bottom: 1px solid #eee; /* Linha sutil entre links */
+        font-weight: 600;
+    }
+
+    .nav-link:hover {
+        /* COR AO PASSAR O MOUSE NO MOBILE - MUDAR AQUI */
+        color: #007bff; 
+    }
+
+    /* ----------------------------------------------------------- */
+    /* 2. ESTILOS DO BOTÃO HAMBÚRGUER/X */
+    /* ----------------------------------------------------------- */
+    
+    /* Estilização do ícone Hambúrguer */
+    .hamburger,
+    .hamburger::before,
+    .hamburger::after {
+        content: '';
+        display: block;
+        width: 25px;
+        height: 3px;
+        /* Cor das linhas do hambúrguer - MUDAR AQUI */
+        background-color: #333; 
+        transition: transform 0.3s, opacity 0.3s, background-color 0.3s;
+    }
+
+    .hamburger::before {
+        transform: translateY(-8px);
+    }
+
+    .hamburger::after {
+        transform: translateY(5px);
+    }
+
+    /* Animação para 'X' quando o menu está ativo */
+    .nav-toggle.active .hamburger {
+        /* MANTÉM A COR DO X QUANDO ABERTO - MUDAR AQUI (opcional) */
+        background-color: transparent; 
+    }
+
+    .nav-toggle.active .hamburger::before {
+        /* MANTÉM A COR DO X QUANDO ABERTO - MUDAR AQUI */
+        background-color: #333;
+        transform: translateY(3px) rotate(45deg);
+    }
+
+    .nav-toggle.active .hamburger::after {
+        /* MANTÉM A COR DO X QUANDO ABERTO - MUDAR AQUI */
+        background-color: #333;
+        transform: translateY(2px) rotate(-45deg); 
+    }
+}
+/* ... o resto do seu código CSS aqui ... */
+
+/* 🔲 Container principal do produto */
+.detalhe-produto {
+    background: var(--bg-section);
+    padding: 40px;height: 600px;
+  margin-top: 0px;
+    background: url("img/") center/cover no-repeat;
+ 
+  
+    z-index: 1;
+    
+    
+}
+
+/* Layout interno */
+.detalhe-produto .container {
+    display: flex;
+    flex-wrap: wrap;
+
+    gap: 40px;
+}
+
+/* 🏷️ Título do produto */
+#titulo-item {
+    flex-basis: 100%;
+    font-size: 2rem;
+    font-weight: 900;
+    color:rgb(0, 0, 0);
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/* 📸 Imagem do produto */
+.imagem-item {
+    flex: 1 1 45%;
+    min-width: 300px;
+    text-align: center;
+    border: 1px solid var(--border-color);
+    border-radius: 16px;
+    padding: 10px;
+    
+
+}
+
+#imagem-item {
+    width: 83%;
+    height: auto;
+    border-radius: 14px;
+    max-height: 550px;
+    object-fit: cover;
+        box-shadow: 0 10px 28px rgba(0, 0, 0, 0.327);
+}
+
+/* 📝 Descrição */
+.descricao-item {
+    flex: 1 1 45%;
+    min-width: 300px;
+    color: #000000;
+    padding: 20px 0;
+}
+
+#descricao-item {
+    font-size: 1.15rem;
+    color: #000000;
+        
+    margin-bottom: 20px;
+    line-height: 1.8;
+}
+
+/* ----------------------------------------------------------
+    📩 BOTÃO DE SOLICITAR ORÇAMENTO
+    ---------------------------------------------------------- */
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    margin-top: 30px;
+    background-color:#C53D4B;
+    color: #fff;
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 8px;
+    font-size: 1.1rem;
+    transition: background-color 0.3s, transform 0.2s;
+    width: 100%;
+    max-width: 350px;
+    text-align: center;
+}
+
+.cta-button:hover {
+    background-color: rgb(0, 0, 0);
+    transform: translateY(-3px);
+}
+
+
+.section-banner {
+  position: relative;
+  font-family: "Raleway", sans-serif;
+  width: 100%;
+  min-height: 460px; /* ajuste se quiser mais ou menos */
+  display: flex;
+  align-items: center;
+  color: #fff;margin-bottom: 150px;
+  background-size: cover;
+  background-position: center;
+  margin-bottom: -2px;
+  background-repeat: no-repeat;margin-top: 250px;
+}
+/* Overlay escuro para contraste */
+.section-banner::before{
+  content: "";
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(90deg, rgba(5,10,15,0.75) 0%, rgba(5,10,15,0.35) 50%, rgba(5,10,15,0.75) 100%);
+  z-index: 1;
+}
+.section-banner .container {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 20px;
+}
+/* texto à esquerda */
+.banner-content {
+  max-width: 62%;
+  text-align: left;
+  padding: 20px 0;
+}
+.banner-small {
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  font-size: 1.2rem;
+  color: rgba(255,255,255,0.85);
+  font-family: "Raleway", sans-serif;
+  margin-bottom: 12px;
+}
+.banner-title {
+  font-size: 2.8rem;
+  line-height: 1.05;
+  color: rgba(255,255,255,0.95);
+  font-weight: 500;
+  margin-bottom: 8px;
+}
+.banner-title strong {
+  display: block;
+  font-weight: 500;
+  font-size: 2.8rem;
+}
+.banner-sub {
+  color: rgba(255,255,255,0.85);
+  margin-top: 8px;
+  font-size: 1.05rem;
+}
+
+/* botão à direita estilo pill com borda */
+.banner-cta-wrap {
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  width: 380px;
+  height: 68px;
+}
+.btn-cta {
+  display:inline-flex;
+  align-items:center;
+  gap:14px;
+  justify-content:center;
+  padding: 14px 26px;
+  border-radius: 44px;
+  border: 2px solid rgba(255,255,255,0.9);
+  background: rgba(255,255,255,0.04);
+  color: #fff;
+  font-weight: 700;
+  font-size: 0.98rem;
+  text-transform:uppercase;
+  transition: transform .18s, background .18s;
+}
+.btn-cta:hover { transform: translateY(-3px); background: rgba(255,255,255,0.06); }
+.btn-cta .arrow {
+  display:inline-block;
+  width:18px;height:18px;border-radius:50%;
+  border:2px solid rgba(255,255,255,0.9);
+  display:flex;align-items:center;justify-content:center;
+  font-weight:700;font-size:12px;
+  margin-left:6px;
+}
+/* ===== RESPONSIVIDADE PARA TELAS MENORES ===== */
+@media (max-width: 992px) {
+  .section-banner {
+    min-height: 380px;
+    margin-top: 120px;
+  }
+  
+  .banner-content {
+    max-width: 100%;
+  }
+
+  .banner-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .section-banner {
+    margin-top: 90px;
+    padding: 40px 0;
+  }
+
+  .section-banner .container {
+    flex-direction: column;
+    text-align: center;
+    gap: 30px;
+  }
+
+  .banner-content {
+    max-width: 100%;
+    padding: 0 20px;
+  }
+
+  .banner-title {
+    font-size: 2rem;
+    line-height: 1.1;
+  }
+
+  .banner-title strong {
+    font-size: 2.2rem;
+  }
+
+  .banner-sub {
+    font-size: 0.95rem;
+  }
+
+  .banner-cta-wrap {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .btn-cta {
+    width: 100%;
+    max-width: 290px;
+  }
+}
+
+
+/* ===== TELAS MUITO PEQUENAS (IPHONES ANTIGOS) ===== */
+@media (max-width: 480px) {
+  .section-banner {
+    margin-top: 260px;
+    min-height: 420px;
+    margin-bottom: 70px;
+  }
+
+  .banner-title {
+    font-size: 1.7rem;
+  }
+  .banner-title strong {
+    font-size: 2rem;
+  }
+
+  .banner-small {
+    font-size: 0.95rem;
+  }
+
+  .btn-cta {
+    font-size: 0.9rem;
+    padding: 12px 20px;
+  }
+}
+
+/* ----------------------------------------------------------
+    🖼️ BANNER (caso use em outras páginas)
+    
+/* ----------------------------------------------------------*/
+    
+/* RESPONSIVO */
+@media (max-width: 992px) {
+    .hero .container { grid-template-columns: 1fr; }
+    .cards { grid-template-columns: repeat(2, 1fr); }
+}
+@media (max-width: 640px) {
+    #menu-toggle { display: block; }
+    #nav-links {
+    position: fixed;
+    top: 64px;
+    right: 0;
+    background: var(--light);
+    flex-direction: column;
+    width: 240px;
+    transform: translateX(100%);
+    transition: transform 0.3s;
+    padding: 24px;
+    gap: 16px;
+    }
+    #nav-links.show { transform: translateX(0); }
+    .cards { grid-template-columns: 1fr; }
+}
+
+    /* MOBILE */
+    @media (max-width: 992px){
+    
+    }
+    @media (max-width: 768px){
+
+    
+    .btn-cta{padding:10px 18px;font-size:0.9rem}
+    .video-frame{width:300px;height:520px}
+    }
+    @media (max-width: 480px){
+    
+    
+    
+    .video-frame{width:240px;height:420px}
+    /* Removido #menu-toggle e #nav-links pois já foram substituídos */
+    }
+    .btn-cta {
+    display:inline-flex;
+    align-items:center;
+    gap:14px;
+    justify-content:center;
+    padding: 14px 26px;
+    border-radius: 44px;
+    border: 2px solid rgba(255,255,255,0.9);
+    background: rgba(255,255,255,0.04);
+    color: #fff;
+    font-weight: 700;
+    font-size: 0.98rem;
+    text-transform:uppercase;
+    transition: transform .18s, background .18s;
+}
+.btn-cta:hover { transform: translateY(-3px); background: rgba(255,255,255,0.06); }
+.btn-cta .arrow {
+    display:inline-block;
+    width:18px;height:18px;border-radius:50%;
+    border:2px solid rgba(255,255,255,0.9);
+    display:flex;align-items:center;justify-content:center;
+    font-weight:700;font-size:12px;
+    margin-left:6px;
+}
+
+/* ----------------------------------------------------------
+    📱 RESPONSIVIDADE (MOBILE) - Ajustes de conteúdo
+    ---------------------------------------------------------- */
+@media (max-width: 768px) {
+    #titulo-item {
+        font-size: 1.5rem;
+         text-align: start;
+    }
+
+    .detalhe-produto .container {
+        flex-direction: column;
+        align-items: start;
+        justify-content: start;
+        text-align: start;
+        width: 100%;
+        gap: 25px;
+       
+        padding: 0 20px;
+    }
+
+    .imagem-item,
+    .descricao-item {
+        flex-basis: 10%;
+        align-items: start;
+        min-width: 100%;
+    }
+
+    /* Removido o estilo de #nav-links antigo */
+
+}
+.texto{text-align: start;color: rgb(0, 0, 0);}
+
+/* ---------- Título ---------- */
+.titulo-carrossel {
+    text-align: center;
+    font-size: 2rem;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 20px;
+margin-top: 200px;
+    letter-spacing: 1px;
+}
+
+@media (max-width: 768px) {
+    .titulo-carrossel {
+        font-size: 1.5rem;
+        margin-top: 360px;
+        margin-bottom: -210px;
+    }
+}
+
+/* ---------- Estrutura do carrossel ---------- */
+.slider-wrapper {
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 440px;
+    background-color: #ffffff;
+    margin-top: -40px;
+    margin-bottom: -200px;
+}
+
+.slider-container {
+   margin: 0 auto;
+    display: flex; ;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+    width: 100%;
+    max-width: 1500px;
+    overflow: hidden; /* Mantemos hidden no desktop para o JS controlar */
+    
+    /* NOVO: Para desabilitar a seleção de texto durante o arraste */
+    cursor: grab;
+    user-select: none; 
+}
+
+.slider {
+    display: flex;
+    gap: 20px;
+    transition: transform 0.4s ease;
+}
+
+.slide {
+    flex: 0 0 calc(20% - 16px); /* 5 cards no PC */
+    display: flex;
+    justify-content: center;
+}
+
+/* ---------- Card ---------- */
+.card {
+    background: #fff;
+border-radius:10px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    cursor: pointer;
+    width: 100%;
+    height: 290px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
+}
+
+.card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    display: block;
+}
+
+.card-content {
+    flex-grow: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 15px;
+    text-align: center;
+}
+
+.card-title {
+    font-size: 1.1rem;
+    color: #222;
+    font-weight: 600;
+    margin-bottom: 10px;
+}
+
+.card-btn {
+    background: #000;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 8px 16px;
+    font-size: 0.9rem;
+    width:100%;
+    cursor: pointer;
+    height: 40px;
+    transition: background 0.3s;
+}
+
+.card-btn:hover {
+    background: #333;
+}
+
+/* ---------- Botões laterais ---------- */
+.btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(0, 0, 0, 0.7);
+    border: none;
+    color: white;
+    font-size: 2rem;
+    cursor: pointer;
+    padding: 10px 19px;
+    border-radius: 50%;
+    transition: background 0.3s;
+    z-index: 10;
+}
+
+.btn:hover {
+    background: rgba(4, 4, 4, 0.6);
+}
+
+.btn.prev { left: 10px; }
+.btn.next { right: 10px; }
+
+/* ---------- RESPONSIVIDADE REAL ---------- */
+/* ---------- RESPONSIVIDADE REAL ---------- */
+@media (max-width: 1024px) {
+    .slide {
+        flex: 0 0 calc(33.33% - 13px); /* 3 cards em tablets */
+    }
+}
+
+@media (max-width: 768px) {
+    .slider {
+        gap: 15px;
+    }
+    .slider-wrapper {
+        height: 400px; 
+        margin-top: 250px;
+        background-color: #ffffff;
+    }
+    .btn {
+        display: none;
+    }
+    .slide {
+        flex: 0 0 29%; /* 🔹 1 card maior */
+        margin-right: 15px; /* espaço para o próximo card aparecer um pouco */
+    }
+    .card {
+        height: 300px;
+        max-width: 100%;
+        margin: 0 auto;
+    }
+    .card img {
+        height: 250px;
+    }
+    .card-content {
+        padding: 0px;
+    }
+}
+
+@media (max-width: 480px) {
+    .card img {
+        height: 230px;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
+    .card-btn {
+        font-size: 0.85rem;
+    }
+}
+/* ... O restante do seu CSS (como @media (max-width: 480px)) deve vir depois. */
+@media (max-width: 480px) {
+    .card img {
+        height: 230px;
+    }
+    .card-title {
+        font-size: 1rem;
+    }
+    .card-btn {
+        font-size: 0.85rem;
+    }
+}
+
+    </style>
+</head>
+<body>
+
+    <header class="header">
+    <nav class="navbar">
+       <a href="pagina.html#inicio" class="logo-link">
+    <img src="img/logovermelha2.png" alt="TMA Serralheria" class="logo-img">
+</a>
+
+        <button class="nav-toggle" aria-label="Abrir menu" aria-expanded="false">
+            <span class="hamburger"></span>
+        </button>
+
+        <ul class="nav-menu">
+            <li><a href="pj.html#inicio" class="nav-link">Inicio</a></li>
+            <li><a href="pj.html#sobre" class="nav-link">Sobre </a></li>
+            <li><a href="pj.html#produtos" class="nav-link">serviços</a></li>
+           
+            <li><a href="#" class="nav-link nav-btn-container"><button class="nav-button">Contato</button></a></li>
+        </ul>
+    </nav>
+</header>
+
+
+    <main>
+        <section class="detalhe-produto">
+            <div class="container">
+                <h2 id="titulo-item">Produto</h2> 
+                
+                <div class="imagem-item">
+                    <img id="imagem-item" src="" alt="Imagem do produto" loading="lazy">
+                </div>
+                
+                <div class="descricao-item">
+                            <h2 class="nome">Produto</h2> 
+                    <p id="descricao-item">Aqui você pode adicionar a descrição detalhada do produto.</p>
+                    
+                    <a href="pagina.html#contato" class="cta-button">
+                        Solicitar Orçamento
+                    </a>
+                </div>
+            </div>
+        </section>
+
+    
+<h2 class="titulo-carrossel">Outras opções</h2>
+<div class="slider-wrapper">
+<div class="slider-container">
+    <button class="btn prev">&#10094;</button>
+
+    <div class="slider" id="slider">
+        <div 	onclick="abrirDetalhes('mesa1')"class="slide">
+            <div class="card">
+                <img src="img/mesa1.png" alt="Banqueta Tradicional com Encosto" onclick="abrirDetalhes('mesa1')">
+                <div class="card-content">
+                    <h3 class="card-title">Banqueta Tradicional</h3>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div onclick="abrirDetalhes('mesa2')" class="slide">
+            <div class="card">
+                <img src="img/mesa3.jpg" alt="Cobertura em Vidro" onclick="abrirDetalhes('mesa2')">
+                <div class="card-content">
+                    <h3 class="card-title">mesa industrial</h3>
+                
+                </div>
+            </div>
+        </div>
+
+        <div onclick="abrirDetalhes('mesa3')" class="slide">
+            <div class="card">
+                <img src="img/escada3.jpg" alt="Corrimão Industrial" onclick="abrirDetalhes('mesa3')">
+                <div class="card-content">
+                    <h3 class="card-title">Corrimão Industrial</h3>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div onclick="abrirDetalhes('mesa4')" class="slide">
+            <div class="card">
+                <img src="img/Conjunto Mesa 4 Cadeiras Pequena Estofado Marrom Industrial W.jpg" alt="Conjunto Mesa e Cadeiras" onclick="abrirDetalhes('mesa4')">
+                <div class="card-content">
+                    <h3 class="card-title">Conjunto Mesa e Cadeiras</h3>
+                
+                </div>
+            </div>
+        </div>
+
+        <div onclick="abrirDetalhes('mesa5')" class="slide">
+            <div class="card">
+                <img src="img/Nicho 3 Cubos em Metalon.jpg" alt="Nicho 3 Cubos em Metalon" onclick="abrirDetalhes('mesa5')">
+                <div class="card-content">
+                    <h3 class="card-title">Nicho 3 Cubos Metalon</h3>
+                
+                </div>
+            </div>
+        </div>
+
+        <div onclick="abrirDetalhes('mesa6')"class="slide">
+            <div class="card">
+                <img src="img/banco de jardim industrial.jpg" alt="Banco de Jardim Industrial" onclick="abrirDetalhes('mesa6')">
+                <div class="card-content">
+                    <h3 class="card-title">Banco de Jardim</h3>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div onclick="abrirDetalhes('mesa7')" class="slide">
+            <div class="card">
+                <img src="img/cobertura.jpg" alt="Pérgolas Metálicas" onclick="abrirDetalhes('mesa7')">
+                <div class="card-content">
+                    <h3 class="card-title">Coberturas Metálicas</h3>
+                
+                </div>
+            </div>
+        </div>
+
+        <div onclick="abrirDetalhes('mesa8')" class="slide">
+            <div class="card">
+                <img src="img/banco.jpg" alt="Box de Banheiro Industrial" onclick="abrirDetalhes('mesa8')">
+                <div class="card-content">
+                    <h3 class="card-title">banquetas</h3>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div onclick="abrirDetalhes('prate')" class="slide">
+            <div class="card">
+                <img src="img/prateleiraluz.jpg" alt="Cozinha Compacta Industrial" onclick="abrirDetalhes('mesa9')">
+                <div class="card-content">
+                    <h3 class="card-title">Prateleiras</h3>
+                    
+                </div>
+            </div>
+        </div>
+
+        <div onclick="abrirDetalhes('armario')" class="slide">
+            <div class="card">
+                <img src="img/armario.jpg" alt="Mesa de Apoio Industrial" onclick="abrirDetalhes('mesa10')">
+                <div class="card-content">
+                    <h3 class="card-title">Armario</h3>
+                
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <button class="btn next">&#10095;</button>
+</div>
+
+
+    </div>
+    </main>
+    <!-- BANNER -->
+    <section id="celular"class="section-banner fade-in" style="background-image: url('img/print.png');">
+      <div class="container">
+        <div class="banner-content">
+          <div class="banner-small">Agora é com a gente!</div>
+          <div class="banner-title">
+            Confie o seu projeto a quem
+            <strong>entende </strong>
+          </div>
+          <div class="banner-sub">Projetos sob medida, qualidade e acabamento profissional.</div>
+        </div>
+        <div class="banner-cta-wrap">
+          <a class="btn-cta" href="#contato">
+            Vamos conversar
+            <span class="arrow">→</span>
+          </a>
+        </div>
+      </div>
+    </section>
+    
+<!-- Rodapé -->
+   <footer class="footer">
+    <div class="footer-content">
+        <div class="footer-column footer-info">
+            <div class="footer-logo">
+                    <a href="#" class="logo-link">
+    <img src="img/logovermelha2.png" alt="TMA Serralheria" class="logo-img">
+</a>
+                <p class="logo-subtitle">Tiago Batista Dionisio</p>
+            </div>
+         
+        </div>
+
+        <div class="footer-column footer-nav">
+            <h4>navegaçao</h4>
+            <ul>
+              
+                <li><a href="#produtos" class="footer-link">produtos</a></li>
+                <li><a href="#sobre" class="footer-link">sobre</a></li>
+                <li><a href="#servicos" class="footer-link">serviços</a></li>
+            </ul>
+        </div>
+
+        <div class="footer-column footer-nav">
+            <h4>Links rapidos</h4>
+            <ul>
+                <li><a href="https://www.instagram.com/ferroartiserralheria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  class="footer-link">Instagram</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=5511932829622&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
+   target="_blank"> WhatsApp</a></li>
+             
+               
+            </ul>
+        </div>
+
+        <div class="footer-column footer-nav">
+            <h4>serviços</h4>
+            <ul>
+                <li><a href="#inicio" class="footer-link">Inicio</a></li>
+                <li><a href="https://api.whatsapp.com/send?phone=5511932829622&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
+   target="_blank"> Contato</a></li>
+         
+             
+            </ul>
+        </div>
+    </div>
+
+    <div class="footer-contact-social">
+        <div class="footer-contact-item">
+            <span class="contact-icon">📍</span> Mogi das Cruzes-SP
+        </div>
+        <div class="footer-contact-item">
+            <span class="contact-icon">📞</span> (+55) 11 932829622
+        </div>
+        <div class="footer-contact-item">
+            <span class="contact-icon">✉️</span> TMAserralheria@gmail.com
+        </div>
+ 
+    </div>
+
+    <div class="footer-bottom">
+        <p>2025. Todos os direitos reservados.</p>
+    </div>
+</footer>
+<script>
+// =========================================================================
+// SCRIPT.JS - FUNCIONALIDADES GERAIS: Menu Lateral e Carrossel
+// =========================================================================
+
+document.addEventListener('DOMContentLoaded', function() {
+    // ---------------------------------------------------------------------
+    // 1. Lógica do Menu Lateral (Slide-In e Scroll Lock)
+    // ---------------------------------------------------------------------
+    const navToggle = document.querySelector('.nav-toggle');
+    const navMenu = document.querySelector('.nav-menu');
+    const body = document.body; 
+
+    if (navToggle && navMenu) {
+        navToggle.addEventListener('click', function() {
+            navToggle.classList.toggle('active');
+            navMenu.classList.toggle('active');
+            body.classList.toggle('menu-open'); 
+            const isExpanded = navToggle.classList.contains('active');
+            navToggle.setAttribute('aria-expanded', isExpanded);
+        });
+
+        // Fechar ao clicar em um link (mobile)
+        navMenu.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', () => {
+                if (window.innerWidth <= 768) {
+                    navToggle.classList.remove('active');
+                    navMenu.classList.remove('active');
+                    body.classList.remove('menu-open'); 
+                    navToggle.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        // Fechar ao clicar fora (mobile)
+        document.addEventListener('click', function(event) {
+            if (!event.target.closest('.header') && navMenu.classList.contains('active') && window.innerWidth <= 768) {
+                navToggle.classList.remove('active');
+                navMenu.classList.remove('active');
+                body.classList.remove('menu-open'); 
+                navToggle.setAttribute('aria-expanded', 'false');
+            }
+        });
+    }
+
+
+    // ---------------------------------------------------------------------
+    // 2. Lógica do Carrossel (Navegação Desktop)
+    // ---------------------------------------------------------------------
+    const slider = document.getElementById('slider');
+    const prevBtn = document.querySelector('.btn.prev');
+    const nextBtn = document.querySelector('.btn.next');
+
+    // Verifica se estamos em mobile (largura menor ou igual a 768px, conforme CSS)
+    const isMobile = () => window.innerWidth <= 768;
+
+    if (slider && prevBtn && nextBtn) {
+        // Quantidade de cards para rolar de uma vez (5 cards no PC, conforme seu CSS)
+        const cardsPerViewDesktop = 5; 
+        let currentIndex = 0;
+        const slides = slider.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        // O número de slides que podemos mover para manter a visão cheia (total - visíveis + 1)
+        const maxIndex = totalSlides - cardsPerViewDesktop + 1;
+
+
+        function updateSliderPosition() {
+            if (isMobile()) {
+                // No mobile, desabilitamos o JS e usamos o scroll nativo (CSS)
+                return; 
+            }
+
+            // A largura de cada slide no desktop é 20% (100% / 5)
+            const slideWidthPercentage = 100 / cardsPerViewDesktop; 
+            const offset = currentIndex * slideWidthPercentage;
+            
+            // Aplica a translação
+            slider.style.transform = `translateX(-${offset}%)`;
+
+            // Atualiza o estado dos botões
+            prevBtn.disabled = currentIndex === 0;
+            // O botão 'next' deve ser desabilitado quando o primeiro slide da última "página" for alcançado
+            nextBtn.disabled = currentIndex >= maxIndex - 1;
+
+            // Ajuste para garantir que não ultrapasse
+            if (currentIndex > maxIndex - 1) {
+                currentIndex = maxIndex - 1;
+                slider.style.transform = `translateX(-${currentIndex * slideWidthPercentage}%)`;
+            }
+        }
+
+        prevBtn.addEventListener('click', () => {
+            currentIndex = Math.max(0, currentIndex - 1);
+            updateSliderPosition();
+        });
+
+        nextBtn.addEventListener('click', () => {
+            // Move no máximo até o primeiro slide da última "página"
+            currentIndex = Math.min(maxIndex - 1, currentIndex + 1); 
+            updateSliderPosition();
+        });
+
+        // Atualiza a posição inicial e quando a tela for redimensionada
+        window.addEventListener('resize', updateSliderPosition);
+        updateSliderPosition();
+    }
+
+
+    // ---------------------------------------------------------------------
+    // 3. Lógica Original de Detalhes do Produto
+    // ---------------------------------------------------------------------
+    // Pega o item clicado
+    const item = localStorage.getItem('itemSelecionado');
+
+    const titulo = document.getElementById('titulo-item');
+    const imagem = document.getElementById('imagem-item');
+    const descricao = document.getElementById('descricao-item');
+
+    // Seu objeto de dados com os caminhos corretos (dentro da pasta 'img')
+    switch(item) {
+        case 'mesa1':
+            titulo.textContent = 'Banqueta Alçada';
+            imagem.src = 'img/mesa1.png'; // Caminho na pasta 'img'
+            descricao.textContent = 'Banqueta com estrutura em metalon resistente e assento em madeira natural. Design moderno e funcional, ideal para cozinhas, bancadas e áreas gourmet. Une conforto, durabilidade e estilo industrial.';
+            break;
+
+        case 'mesa2':
+            titulo.textContent = 'Mesa Industrial';
+            imagem.src = 'img/mesa3.jpg'; 
+            descricao.textContent = 'Mesa com estrutura em metalon e tampo em madeira de acabamento rústico. O design robusto e minimalista combina com ambientes modernos e industriais, perfeita para áreas externas ou internas.';
+            break;
+
+        case 'mesa3':
+            titulo.textContent = 'Escada com Guarda-Corpo';
+            imagem.src = 'img/escada3.jpg'; // Caminho na pasta 'img'
+            descricao.textContent = 'Guarda-corpo fabricado em metalon com pintura eletrostática e detalhes geométricos. Proporciona segurança e um toque contemporâneo ao ambiente, ideal para escadas residenciais ou comerciais.';
+            break;
+
+        case 'mesa4':
+            titulo.textContent = 'Conjunto Mesa + 4 Cadeiras';
+            imagem.src = 'img/Conjunto Mesa 4 Cadeiras Pequena Estofado Marrom Industrial W.jpg'; 
+            descricao.textContent = 'Conjunto composto por mesa e quatro cadeiras com estrutura em metalon e madeira tratada. Compacto, resistente e de design industrial, é perfeito para cozinhas pequenas e áreas de convivência.';
+            break;
+
+        case 'mesa5':
+            titulo.textContent = 'Nicho Industrial 3 Cubos';
+            imagem.src = 'img/Nicho 3 Cubos em Metalon.jpg'; 
+            descricao.textContent = 'Nicho decorativo com estrutura em metalon e prateleiras em madeira natural. Versátil e estiloso, combina funcionalidade e estética, ideal para salas, escritórios e quartos modernos.';
+            break;
+
+        case 'mesa6':
+            titulo.textContent = 'Banco de Jardim Industrial';
+            imagem.src = 'img/banco de jardim industrial.jpg'; 
+            descricao.textContent = 'Banco com estrutura em metalon e ripas de madeira envernizada. Design resistente e elegante, ideal para áreas externas, varandas e jardins com estilo industrial contemporâneo.';
+            break;
+
+        case 'mesa7':
+            titulo.textContent = 'Pérgolas Metálicas'; // Novo
+            imagem.src = 'img/pérgolas.jpg'; 
+            descricao.textContent = 'Estrutura de pérgola em metalon, ideal para criar áreas de sombra em jardins e terraços. Oferece resistência e um design moderno, perfeito para plantas trepadeiras e cobertura.';
+            break;
+
+        case 'mesa8':
+            titulo.textContent = 'Box de Banheiro Industrial'; // Novo
+            imagem.src = 'img/banco.jpg'; 
+            descricao.textContent = 'Conjunto de bancos industriais com metalon.';
+            break;
+
+        case 'mesa9':
+            titulo.textContent = 'Cozinha Compacta'; // Novo
+            imagem.src = 'img/cozi.png'; 
+            descricao.textContent = 'Cozinha compacta com armários e prateleiras em estrutura de metalon. Solução prática e moderna para espaços pequenos, combinando armazenamento e estilo industrial.';
+            break;
+
+        case 'mesa10':
+            titulo.textContent = 'Mesa de Apoio'; // Novo
+            imagem.src = 'img/d.jpg'; 
+            descricao.textContent = 'Mesa de apoio lateral com base em metalon e tampo redondo. Ideal para ser usada ao lado de sofás ou camas, adicionando um toque industrial e funcional.';
+            break;
+
+    case 'poltrona':
+            titulo.textContent = 'poltrona';
+            imagem.src = 'img/poltrona.jpg'; 
+            descricao.textContent = 'Poltrona com estrutura em metalon e braços em madeira natural. Confortável e resistente, traz elegância e modernidade ao ambiente. Ideal para varandas, salas e áreas de lazer.';
+            break;
+
+        case 'sofa':
+            titulo.textContent = 'Sofá moderno';
+            imagem.src = 'img/sofa.jpg'; 
+            descricao.textContent = 'Estrutura robusta em metalon com acabamento refinado e estofado confortável. Design moderno que une leveza visual e durabilidade. Perfeito para salas, escritórios e áreas externas cobertas.';
+            break;
+
+        case 'prate':
+            titulo.textContent = 'Prateleiras'; // Novo
+            imagem.src = 'img/prateleiraluz.jpg'; 
+            descricao.textContent = 'Conjunto de prateleiras com estrutura metálica e madeira de alta qualidade que valoriza a decoração e cria um ambiente acolhedor. Perfeito para salas, quartos e escritórios modernos.';
+            break;
+
+        case 'esta':
+            titulo.textContent = 'Estante'; // Novo
+            imagem.src = 'img/Estante para Livros da Amanda.jpg'; 
+            descricao.textContent = 'Estante com prateleiras em madeira e estrutura firme em metalon. Versátil e estilosa, permite organizar e decorar com personalidade. Ideal para salas, corredores e home offices.';
+            break;
+
+        case 'armarinho':
+            titulo.textContent = 'Balcão'; // Novo
+            imagem.src = 'img/armarinho.jpg'; 
+            descricao.textContent = 'Balcão funcional com nichos amplos e porta com tela perfurada. Design industrial que combina praticidade e estética. Excelente para cozinhas, áreas gourmet e escritórios contemporâneos.';
+            break;
+
+        case 'armario':
+            titulo.textContent = 'Mesa de Apoio'; // Novo
+            imagem.src = 'img/armario.jpg'; 
+            descricao.textContent = 'Armário modular com estrutura metálica e painéis em madeira natural. Funcional e sofisticado, oferece excelente organização com estilo industrial. Ideal para salas, home offices e ambientes planejados.';
+            break;
+
+        default:
+            titulo.textContent = 'Armario';
+            imagem.src = 'https://via.placeholder.com/600x400?text=Produto+Nao+Encontrado';
+            descricao.textContent = 'O item selecionado não está disponível ou foi removido do estoque.';
+    }
+
+}); // Fim do DOMContentLoaded
+
+
+function abrirDetalhes(item) {
+    localStorage.setItem('itemSelecionado', item);
+    // Verifique se o nome do seu arquivo HTML é 'pagina.html'
+    window.location.href = 'pagina.html' // Corrigi para apenas 'pagina.h' como estava no seu código original (pode ser um erro de digitação do seu lado).
+}
+</script>
+```
+</body>
+</html>
