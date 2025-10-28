@@ -890,188 +890,95 @@ margin-top: 200px;
         margin-bottom: -210px;
     }
 }
+/* CSS CARROSEL */
 
-/* ---------- Estrutura do carrossel ---------- */
-.slider-wrapper {
-    display: flex;
-    justify-content: center;
+
+.carousel-wrapper {
     width: 100%;
-    height: 440px;
-    background-color: #ffffff;
-    margin-top: -40px;
-    margin-bottom: -200px;
-}
-
-.slider-container {
-   margin: 0 auto;
-    display: flex; ;
-    justify-content: center;
-    align-items: center;
     position: relative;
-    width: 100%;
-    max-width: 1500px;
-    overflow: hidden; /* Mantemos hidden no desktop para o JS controlar */
-    
-    /* NOVO: Para desabilitar a seleção de texto durante o arraste */
-    cursor: grab;
-    user-select: none; 
+    overflow: hidden;
+    padding: 30px 0;
 }
 
-.slider {
+.carousel {
     display: flex;
     gap: 20px;
-    transition: transform 0.4s ease;
+    scroll-behavior: smooth;
+    overflow-x: auto;
+    scrollbar-width: none; /* Firefox */
 }
 
-.slide {
-    flex: 0 0 calc(20% - 16px); /* 5 cards no PC */
-    display: flex;
-    justify-content: center;
+.carousel::-webkit-scrollbar {
+    display: none;
 }
 
-/* ---------- Card ---------- */
 .card {
+    min-width: 260px;
     background: #fff;
-border-radius:10px;
+    border-radius: 15px;
+    box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
+    text-align: center;
     overflow: hidden;
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
-    cursor: pointer;
-    width: 100%;
-    height: 290px;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-}
-
-.card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.25);
 }
 
 .card img {
     width: 100%;
-    height: 200px;
+    height: 180px;
     object-fit: cover;
-    display: block;
 }
 
-.card-content {
-    flex-grow: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.card p {
     padding: 15px;
-    text-align: center;
-}
-
-.card-title {
-    font-size: 1.1rem;
-    color: #222;
+    font-size: 18px;
     font-weight: 600;
-    margin-bottom: 10px;
 }
 
-.card-btn {
-    background: #000;
-    color: #fff;
-    border: none;
-    border-radius: 8px;
-    padding: 8px 16px;
-    font-size: 0.9rem;
-    width:100%;
-    cursor: pointer;
-    height: 40px;
-    transition: background 0.3s;
-}
-
-.card-btn:hover {
-    background: #333;
-}
-
-/* ---------- Botões laterais ---------- */
-.btn {
+.carousel-btn {
     position: absolute;
     top: 50%;
     transform: translateY(-50%);
-    background: rgba(0, 0, 0, 0.7);
-    border: none;
+    background: rgba(0,0,0,0.6);
     color: white;
-    font-size: 2rem;
+    border: none;
     cursor: pointer;
-    padding: 10px 19px;
+    width: 40px;
+    height: 40px;
     border-radius: 50%;
-    transition: background 0.3s;
+    font-size: 22px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     z-index: 10;
 }
 
-.btn:hover {
-    background: rgba(4, 4, 4, 0.6);
-}
+.prev { left: 5px; }
+.next { right: 5px; }
 
-.btn.prev { left: 10px; }
-.btn.next { right: 10px; }
-
-/* ---------- RESPONSIVIDADE REAL ---------- */
-/* ---------- RESPONSIVIDADE REAL ---------- */
-@media (max-width: 1024px) {
-    .slide {
-        flex: 0 0 calc(33.33% - 13px); /* 3 cards em tablets */
+/* Desktop: mostrar 5 por vez */
+@media(min-width: 1024px) {
+    .card {
+        min-width: calc((100% - 80px) / 5);
     }
 }
 
-@media (max-width: 768px) {
-    .slider {
-        gap: 15px;
+/* Mobile: 1 card e meio */
+@media(max-width: 768px) {
+    .card {
+        min-width: 75vw;
     }
-    .slider-wrapper {
-        height: 400px; 
-        margin-top: 250px;
-        background-color: #ffffff;
-    }
-    .btn {
+    .carousel-wrapper .carousel-btn {
         display: none;
     }
-    .slide {
-        flex: 0 0 29%; /* 🔹 1 card maior */
-        margin-right: 15px; /* espaço para o próximo card aparecer um pouco */
-    }
-    .card {
-        height: 300px;
-        max-width: 100%;
-        margin: 0 auto;
-    }
-    .card img {
-        height: 250px;
-    }
-    .card-content {
-        padding: 0px;
-    }
 }
 
-@media (max-width: 480px) {
-    .card img {
-        height: 230px;
-    }
-    .card-title {
-        font-size: 1rem;
-    }
-    .card-btn {
-        font-size: 0.85rem;
-    }
-}
-/* ... O restante do seu CSS (como @media (max-width: 480px)) deve vir depois. */
-@media (max-width: 480px) {
-    .card img {
-        height: 230px;
-    }
-    .card-title {
-        font-size: 1rem;
-    }
-    .card-btn {
-        font-size: 0.85rem;
-    }
-}
+
+
+
+/* ---------- Estrutura do carrossel ---------- */
+
+
+/* ---------- RESPONSIVIDADE REAL ---------- */
+/* ---------- RESPONSIVIDADE REAL ---------- */
 
     </style>
 </head>
@@ -1118,7 +1025,31 @@ border-radius:10px;
             </div>
         </section>
 
-    
+
+
+
+
+
+        <div class="carousel-wrapper">
+    <button class="carousel-btn prev">&#10094;</button>
+
+    <div class="carousel" id="carousel">
+        <div class="card"> <img src="img/armarinho.jpg"><p>Corrimão Industrial</p></div>
+        <div class="card"> <img src="img/armarinho.jpg"><p>Banco de Jardim</p></div>
+        <div class="card"> <img src="img/armarinho.jpg"><p>Coberturas Metálicas</p></div>
+        <div class="card"> <img src="img/armario.jpg"><p>Banquetas</p></div>
+        <div class="card"> <img src="img/armarinho.jpg"><p>Prateleiras</p></div>
+        <div class="card"> <img src="img/img6.jpg"><p>Armário</p></div>
+        <div class="card"> <img src="img/img7.jpg"><p>Projeto 7</p></div>
+        <div class="card"> <img src="img/img8.jpg"><p>Projeto 8</p></div>
+        <div class="card"> <img src="img/img9.jpg"><p>Projeto 9</p></div>
+        <div class="card"> <img src="img/img10.jpg"><p>Projeto 10</p></div>
+    </div>
+
+    <button class="carousel-btn next">&#10095;</button>
+</div>
+
+    /<!-- HTML CARROSEL
 <h2 class="titulo-carrossel">Outras opções</h2>
 <div class="slider-wrapper">
 <div class="slider-container">
@@ -1229,11 +1160,27 @@ border-radius:10px;
     <button class="btn next">&#10095;</button>
 </div>
 
+-->
 
-    </div>
-    </main>
-    <!-- BANNER -->
-    <section id="celular"class="section-banner fade-in" style="background-image: url('img/print.png');">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+        </main>
+           <!-- BANNER -->
+     <section id="celular"class="section-banner fade-in" style="background-image: url('img/print.png');">
       <div class="container">
         <div class="banner-content">
           <div class="banner-small">Agora é com a gente!</div>
@@ -1361,66 +1308,19 @@ document.addEventListener('DOMContentLoaded', function() {
     }
 
 
-    // ---------------------------------------------------------------------
-    // 2. Lógica do Carrossel (Navegação Desktop)
-    // ---------------------------------------------------------------------
-    const slider = document.getElementById('slider');
-    const prevBtn = document.querySelector('.btn.prev');
-    const nextBtn = document.querySelector('.btn.next');
+    // JS CARROSEL---------------------------------------------------------------------      //
+  
+const carousel = document.getElementById("carousel");
+const prevBtn = document.querySelector(".prev");
+const nextBtn = document.querySelector(".next");
 
-    // Verifica se estamos em mobile (largura menor ou igual a 768px, conforme CSS)
-    const isMobile = () => window.innerWidth <= 768;
+nextBtn.addEventListener("click", () => {
+    carousel.scrollLeft += carousel.offsetWidth - 60;
+});
 
-    if (slider && prevBtn && nextBtn) {
-        // Quantidade de cards para rolar de uma vez (5 cards no PC, conforme seu CSS)
-        const cardsPerViewDesktop = 5; 
-        let currentIndex = 0;
-        const slides = slider.querySelectorAll('.slide');
-        const totalSlides = slides.length;
-        // O número de slides que podemos mover para manter a visão cheia (total - visíveis + 1)
-        const maxIndex = totalSlides - cardsPerViewDesktop + 1;
-
-
-        function updateSliderPosition() {
-            if (isMobile()) {
-                // No mobile, desabilitamos o JS e usamos o scroll nativo (CSS)
-                return; 
-            }
-
-            // A largura de cada slide no desktop é 20% (100% / 5)
-            const slideWidthPercentage = 100 / cardsPerViewDesktop; 
-            const offset = currentIndex * slideWidthPercentage;
-            
-            // Aplica a translação
-            slider.style.transform = `translateX(-${offset}%)`;
-
-            // Atualiza o estado dos botões
-            prevBtn.disabled = currentIndex === 0;
-            // O botão 'next' deve ser desabilitado quando o primeiro slide da última "página" for alcançado
-            nextBtn.disabled = currentIndex >= maxIndex - 1;
-
-            // Ajuste para garantir que não ultrapasse
-            if (currentIndex > maxIndex - 1) {
-                currentIndex = maxIndex - 1;
-                slider.style.transform = `translateX(-${currentIndex * slideWidthPercentage}%)`;
-            }
-        }
-
-        prevBtn.addEventListener('click', () => {
-            currentIndex = Math.max(0, currentIndex - 1);
-            updateSliderPosition();
-        });
-
-        nextBtn.addEventListener('click', () => {
-            // Move no máximo até o primeiro slide da última "página"
-            currentIndex = Math.min(maxIndex - 1, currentIndex + 1); 
-            updateSliderPosition();
-        });
-
-        // Atualiza a posição inicial e quando a tela for redimensionada
-        window.addEventListener('resize', updateSliderPosition);
-        updateSliderPosition();
-    }
+prevBtn.addEventListener("click", () => {
+    carousel.scrollLeft -= carousel.offsetWidth - 60;
+});
 
 
     // ---------------------------------------------------------------------
