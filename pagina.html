@@ -879,7 +879,7 @@ body.menu-open {
     font-weight: 600;
     color: #000000;
     margin-bottom: 20px;
-margin-top: 200px;
+margin-top: 160px;
     letter-spacing: 1px;
 }
 
@@ -893,11 +893,16 @@ margin-top: 200px;
 /* CSS CARROSEL */
 
 
-.carousel-wrapper {
+.carousel-container {
     width: 100%;
+    height: auto;
+    display: flex;
+    justify-content: center;
     position: relative;
-    overflow: hidden;
-    padding: 30px 0;
+    overflow: hidden; margin-bottom: -160px;
+    /* AUMENTADO: Afasta o conteúdo e os botões das laterais do site */
+    padding: 0 100px; /* Alterado de 60px para 100px */
+    box-sizing: border-box;
 }
 
 .carousel {
@@ -905,73 +910,112 @@ margin-top: 200px;
     gap: 20px;
     scroll-behavior: smooth;
     overflow-x: auto;
-    scrollbar-width: none; /* Firefox */
+    scrollbar-width: none;
+    /* MANTIDO: Limita a largura máxima do carrossel */
+    max-width: 1500px; 
+    margin: 0 auto;
 }
 
 .carousel::-webkit-scrollbar {
     display: none;
 }
 
+/* NOVO ESTILO PARA OS BOTÕES (MANTIDO O VISUAL PRETO) */
+.carousel-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background-color: #000;
+    color: #fff;
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+    z-index: 10;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.5em;
+    transition: background-color 0.3s;
+}
+
+.carousel-btn:hover {
+    background-color: #333;
+}
+
+.carousel-btn.prev {
+    /* AFASTADO: Posiciona o botão à esquerda, respeitando o novo padding */
+    left: 100px; /* Ajuste este valor se quiser mais ou menos espaço */
+}
+
+.carousel-btn.next {
+    /* AFASTADO: Posiciona o botão à direita, respeitando o novo padding */
+    right:100px; /* Ajuste este valor se quiser mais ou menos espaço */
+}
+/* FIM DOS ESTILOS PARA BOTÕES */
+
+
 .card {
-    min-width: 260px;
+    /* DIMINUÍDO: Permite que mais cards fiquem visíveis sem cortar */
+   min-width: calc((100% / 4) - 25px); /* Alterado de 320px para 300px ou menos, se necessário */
+    /* Você pode tentar 280px se ainda estiver cortando muito */
+   min-width: 280px;
+ 
     background: #fff;
-    border-radius: 15px;
+    color: #000000;
+    font-weight: lighter;
+    border-radius: 10px;
     box-shadow: 0px 4px 12px rgba(0,0,0,0.15);
     text-align: center;
     overflow: hidden;
+    display: flex; margin-top: 60px;
+    margin-bottom: 50px;
+    flex-direction: column; /* ADICIONE AQUI: Transição suave para o efeito de escala */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
-
+.card:hover {
+    /* AUMENTA O CARD EM 3% (1.03) */
+    transform: scale(1.03); 
+    /* Torna a sombra mais pronunciada para dar um efeito de "elevação" */
+    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.25); 
+    /* Garante que o card fique por cima de outros cards se houver sobreposição */
+    z-index: 5; 
+}
 .card img {
     width: 100%;
     height: 180px;
     object-fit: cover;
 }
 
-.card p {
-    padding: 15px;
-    font-size: 18px;
-    font-weight: 600;
+.card h3 {
+    margin-top: auto;
+    padding: 10px 0;margin-top: 15px;
+    font-weight: lighter;
+    margin-bottom: 15px;
 }
 
-.carousel-btn {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background: rgba(0,0,0,0.6);
-    color: white;
-    border: none;
-    cursor: pointer;
-    width: 40px;
-    height: 40px;
-    border-radius: 50%;
-    font-size: 22px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    z-index: 10;
+.titulo-carrossel {
+    text-align: center;
+    margin-bottom: 25px;
 }
-
-.prev { left: 5px; }
-.next { right: 5px; }
-
-/* Desktop: mostrar 5 por vez */
-@media(min-width: 1024px) {
-    .card {
-        min-width: calc((100% - 80px) / 5);
+.linkw{color: #C53D4B;text-decoration: none;}
+/* Responsivo */
+@media (max-width: 768px) {
+    .carousel-container {
+        /* Reduz o padding para telas pequenas */
+        padding: 0 20px; 
     }
-}
 
-/* Mobile: 1 card e meio */
-@media(max-width: 768px) {
     .card {
         min-width: 75vw;
     }
-    .carousel-wrapper .carousel-btn {
+
+    .carousel-btn {
         display: none;
     }
 }
-
-
 
 
 /* ---------- Estrutura do carrossel ---------- */
@@ -1030,24 +1074,70 @@ margin-top: 200px;
 
 
 
-        <div class="carousel-wrapper">
+ <h2 class="titulo-carrossel">Outras opções</h2>
+
+<div class="carousel-container">
+
     <button class="carousel-btn prev">&#10094;</button>
 
     <div class="carousel" id="carousel">
-        <div class="card"> <img src="img/armarinho.jpg"><p>Corrimão Industrial</p></div>
-        <div class="card"> <img src="img/armarinho.jpg"><p>Banco de Jardim</p></div>
-        <div class="card"> <img src="img/armarinho.jpg"><p>Coberturas Metálicas</p></div>
-        <div class="card"> <img src="img/armario.jpg"><p>Banquetas</p></div>
-        <div class="card"> <img src="img/armarinho.jpg"><p>Prateleiras</p></div>
-        <div class="card"> <img src="img/img6.jpg"><p>Armário</p></div>
-        <div class="card"> <img src="img/img7.jpg"><p>Projeto 7</p></div>
-        <div class="card"> <img src="img/img8.jpg"><p>Projeto 8</p></div>
-        <div class="card"> <img src="img/img9.jpg"><p>Projeto 9</p></div>
-        <div class="card"> <img src="img/img10.jpg"><p>Projeto 10</p></div>
+
+        <div class="card" onclick="abrirDetalhes('mesa1')">
+            <img src="img/mesa1.png" alt="Banqueta Tradicional com Encosto">
+            <h3>Banqueta Tradicional</h3>
+        </div>
+
+        <div class="card" onclick="abrirDetalhes('mesa2')">
+            <img src="img/mesa3.jpg" alt="Cobertura em Vidro">
+            <h3>Mesa Industrial</h3>
+        </div>
+
+        <div class="card" onclick="abrirDetalhes('mesa3')">
+            <img src="img/escada3.jpg" alt="Corrimão Industrial">
+            <h3>Corrimão Industrial</h3>
+        </div>
+
+        <div class="card" onclick="abrirDetalhes('mesa4')">
+            <img src="img/Conjunto Mesa 4 Cadeiras Pequena Estofado Marrom Industrial W.jpg" alt="Conjunto Mesa e Cadeiras">
+            <h3>Conjunto Mesa e Cadeiras</h3>
+        </div>
+
+        <div class="card" onclick="abrirDetalhes('mesa5')">
+            <img src="img/Nicho 3 Cubos em Metalon.jpg" alt="Nicho 3 Cubos em Metalon">
+            <h3>Nicho 3 Cubos Metalon</h3>
+        </div>
+
+        <div class="card" onclick="abrirDetalhes('mesa6')">
+            <img src="img/banco de jardim industrial.jpg" alt="Banco de Jardim Industrial">
+            <h3>Banco de Jardim</h3>
+        </div>
+
+        <div class="card" onclick="abrirDetalhes('mesa7')">
+            <img src="img/cobertura.jpg" alt="Pérgolas Metálicas">
+            <h3>Coberturas Metálicas</h3>
+        </div>
+
+        <div class="card" onclick="abrirDetalhes('mesa8')">
+            <img src="img/banco.jpg" alt="Box de Banheiro Industrial">
+            <h3>Banquetas</h3>
+        </div>
+
+        <div class="card" onclick="abrirDetalhes('mesa9')">
+            <img src="img/prateleiraluz.jpg" alt="Cozinha Compacta Industrial">
+            <h3>Prateleiras</h3>
+        </div>
+
+        <div class="card" onclick="abrirDetalhes('armario')">
+            <img src="img/armario.jpg" alt="Mesa de Apoio Industrial">
+            <h3>Armário</h3>
+        </div>
+
     </div>
 
     <button class="carousel-btn next">&#10095;</button>
+
 </div>
+
 
     /<!-- HTML CARROSEL
 <h2 class="titulo-carrossel">Outras opções</h2>
@@ -1225,8 +1315,8 @@ margin-top: 200px;
         <div class="footer-column footer-nav">
             <h4>Links rapidos</h4>
             <ul>
-                <li><a href="https://www.instagram.com/ferroartiserralheria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  class="footer-link">Instagram</a></li>
-                <li><a href="https://api.whatsapp.com/send?phone=5511932829622&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
+                <li><a class="linkw" href="https://www.instagram.com/ferroartiserralheria?utm_source=ig_web_button_share_sheet&igsh=ZDNlZDc0MzIxNw=="  class="footer-link">Instagram</a></li>
+                <li><a class="linkw" href="https://api.whatsapp.com/send?phone=5511932829622&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
    target="_blank"> WhatsApp</a></li>
              
                
@@ -1237,7 +1327,7 @@ margin-top: 200px;
             <h4>serviços</h4>
             <ul>
                 <li><a href="#inicio" class="footer-link">Inicio</a></li>
-                <li><a href="https://api.whatsapp.com/send?phone=5511932829622&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
+                <li><a class="linkw" href="https://api.whatsapp.com/send?phone=5511932829622&text=Ol%C3%A1%2C%20vim%20pelo%20site%20e%20gostaria%20de%20solicitar%20um%20or%C3%A7amento.%20Pode%20me%20ajudar%3F"
    target="_blank"> Contato</a></li>
          
              
