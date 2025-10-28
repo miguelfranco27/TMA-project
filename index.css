@@ -1,7 +1,7 @@
 :root {
   --bg: #f5f5f5;
   --primary: #0f1724;
-  --accent: #C53D4B;
+  --accent: #e13143;
   --muted: #6c757d;
   --light: rgba(50, 48, 48, 0.112);
   --section-gap: 80px;
@@ -37,7 +37,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 
 .header {
     /* Cor de fundo da navbar - MUDAR AQUI SE NECESSÁRIO (Ex: lightblue no design) */
-    background-color: #f0f8ff; 
+    background-color: #ffffff; 
     padding: 15px 30px;
 }
 
@@ -84,7 +84,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 
 .nav-link:hover {
     /* Cor ao passar o mouse */
-    color: #C53D4B; 
+    color: #e13143; 
 }
 
 /* Botão de Ação (Find A House) */
@@ -94,7 +94,7 @@ img, video { display: block; max-width: 100%; height: auto; }
     border: none; 
     color: white; /* Cor do texto do botão */
     padding: 10px 20px;
-    background-color: #C53D4B;
+    background-color: #e13143;
     border-radius: 5px;
     cursor: pointer;
     font-size: 16px;
@@ -229,7 +229,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 
 .footer-link:hover {
     /* Cor do link ao passar o mouse */
-    color:#C53D4B; 
+    color:#e13143; 
 }
 
 /* Linha de Contato e Social */
@@ -241,7 +241,7 @@ img, video { display: block; max-width: 100%; height: auto; }
     margin: 0 auto;
     padding: 20px 0;
     /* Linha divisória - MUDAR AQUI (se quiser cor diferente) */
-    border-bottom: 1px solid #C53D4B; 
+    border-bottom: 1px solid #e13143; 
 }
 
 .footer-contact-item {
@@ -271,7 +271,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 
 .footer-social-link:hover {
     /* Cor dos ícones ao passar o mouse */
-    color: #C53D4B; 
+    color: #e13143; 
 }
 
 /* Linha de Copyright */
@@ -483,7 +483,7 @@ img, video { display: block; max-width: 100%; height: auto; }
 }
           
 .hero-content h1 .destaque {
-  color: #C53D4B;
+  color: #e13143;
 }
 
 .hero-content p {
